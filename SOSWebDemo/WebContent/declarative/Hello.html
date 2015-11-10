@@ -1,0 +1,36 @@
+<HTML>
+<!-- 
+
+A program which send Parameters from HTML to a JSP. Use URL 
+http://localhost:8080/ajkiapp/declarative/Hello.html
+to test it 
+
+@author SunilOS
+@version 1.0
+@Copyright (c) SunilOS 
+
+ -->
+<BODY>
+
+<H1>Test JSP Parameters <H1>
+<B>This is Header</B>
+
+<FORM METHOD=POST ACTION="HelloCtl.jsp">
+
+<TABLE>
+<TR>
+	<TD>First Name</TD>
+	<TD><INPUT TYPE="text" NAME="name"></TD>
+</TR>
+<TR>
+	<TD>Last Name</TD>
+	<TD><INPUT TYPE="text" NAME="surname"></TD>
+</TR>
+<TR>
+	<TD colspan=2 ><INPUT TYPE="submit"></TD>
+</TR>
+
+</TABLE>
+</FORM>
+</BODY>
+</HTML>

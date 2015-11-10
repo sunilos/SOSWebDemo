@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<!-- Servlet Definition -->
+	<servlet>
+		<servlet-name>HelloWorld</servlet-name>
+		<servlet-class>in.co.sunrays.servlet.HelloWorld</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AkshayKumar</servlet-name>
+		<servlet-class>in.co.sunrays.servlet.AkshayKumar</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>KatrinaKaif</servlet-name>
+		<servlet-class>in.co.sunrays.servlet.KatrinaKaif</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>TestForward</servlet-name>
+		<servlet-class>in.co.sunrays.servlet.TestForward</servlet-class>
+	</servlet>
+
+
+	<!-- Reads init params from Servlet Config object -->
+	<servlet>
+		<servlet-name>ReadInitParams</servlet-name>
+		<servlet-class>in.co.sunrays.servlet.ReadInitParams</servlet-class>
+		<init-param>
+			<param-name>org</param-name>
+			<param-value>sunRays Technologies</param-value>
+		</init-param>
+	</servlet>
+
+	<!-- Mappes JSP that reads Initial Parameters from config implicit object -->
+	<servlet>
+		<servlet-name>ReadInitParamsJSP</servlet-name>
+		<jsp-file>/scope/ReadInitParams.jsp</jsp-file>
+		<init-param>
+			<param-name>org</param-name>
+			<param-value>sunRays Technologies</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SingleThreadSample</servlet-name>
+		<servlet-class>in.co.sunrays.servlet.SingleThreadSample</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RollnoCtl</servlet-name>
+		<servlet-class>in.co.sunrays.servlet.RollnoCtl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>StudentMgtCtl</servlet-name>
+		<servlet-class>in.co.sunrays.servlet.StudentMgtCtl</servlet-class>
+	</servlet>
+
+	<!-- Map servlet with a URL -->
+
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/servlet/HelloWorld</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AkshayKumar</servlet-name>
+		<url-pattern>/akki</url-pattern>
+	</servlet-mapping>
+
+	<!-- Wildcard mapping for AkshayKumar, Any URL has .khiladi suffix will 
+		cal AkshayKumar servlet. Wildcard mapping is used to configure Front Controller 
+		in a Web Application -->
+
+	<servlet-mapping>
+		<servlet-name>AkshayKumar</servlet-name>
+		<url-pattern>*.khiladi</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>KatrinaKaif</servlet-name>
+		<url-pattern>/kakki</url-pattern>
+	</servlet-mapping>
+
+	<!-- Multiple mapping for KatrinaKaif -->
+	<servlet-mapping>
+		<servlet-name>KatrinaKaif</servlet-name>
+		<url-pattern>/SIK</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- Reads Initial Parameters from ServletConfig object -->
+	<servlet-mapping>
+		<servlet-name>ReadInitParams</servlet-name>
+		<url-pattern>/servlet/ReadInitParams</url-pattern>
+	</servlet-mapping>
+
+	<!-- Mappes JSP that reads Initial Parameters from config implicit object -->
+	<servlet-mapping>
+		<servlet-name>ReadInitParamsJSP</servlet-name>
+		<url-pattern>/jsp/ReadInitParams</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>TestForward</servlet-name>
+		<url-pattern>/servlet/TestForward</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>SingleThreadSample</servlet-name>
+		<url-pattern>/servlet/SingleThreadSample</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>RollnoCtl</servlet-name>
+		<url-pattern>/servlet/RollnoCtl</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>StudentMgtCtl</servlet-name>
+		<url-pattern>/StudentMgtCtl</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>MyFilter</filter-name>
+		<filter-class>in.co.sunrays.filter.MyFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>FrontCtl</filter-name>
+		<filter-class>in.co.sunrays.filter.FrontCtl</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>MyFilter</filter-name>
+		<servlet-name>HelloWorld</servlet-name>
+	</filter-mapping>
+		
+	<filter-mapping>
+		<filter-name>FrontCtl</filter-name>
+		<servlet-name>/servlet/*</servlet-name>
+	</filter-mapping>
+
+	<env-entry>
+		<env-entry-name>organization</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>
+			SUNRAYS Technologies
+		</env-entry-value>
+	</env-entry>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/ExceptionHandler.jsp</location>
+	</error-page>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>
